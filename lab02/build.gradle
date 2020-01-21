@@ -1,9 +1,8 @@
+plugins {
+    id "application"
+}
 apply plugin: 'java'
-​
 ext {
-   javaMainClass = "SimpleTest.Demo"
+   javaMainClass = "lab02.SimpleTest"
 }
- 
-application {
-    mainClassName = javaMainClass
-}
+mainClassName = javaMainClass
