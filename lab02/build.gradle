@@ -1,0 +1,9 @@
+apply plugin: 'java'
+​
+ext {
+   javaMainClass = "SimpleTest.Demo"
+}
+ 
+application {
+    mainClassName = javaMainClass
+}
