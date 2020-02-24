@@ -23,9 +23,7 @@ import java.text.DecimalFormat;
 public class QuestionTwo extends Application {
 
     // Allows execution of program
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 
     @Override
     public void start(Stage primaryStage) {

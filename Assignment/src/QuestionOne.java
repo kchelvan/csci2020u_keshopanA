@@ -21,9 +21,7 @@ import java.util.Random;
 public class QuestionOne extends Application {
 
     // Allows executions of program
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 
     @Override
     public void start(Stage primaryStage) {
