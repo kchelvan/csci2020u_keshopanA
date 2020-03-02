@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class QuestionOne extends Application {
 
-    // Allows executions of program
+    // Allows executions of program in the command line
     public static void main(String[] args) { launch(args); }
 
     @Override

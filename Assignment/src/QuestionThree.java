@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.shape.Line;
-import javafx.scene.paint.Color;
 import javafx.geometry.Point2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,7 @@ public class QuestionThree extends Application {
     List<Line> line = new ArrayList<>();
     List<Double> angle = new ArrayList<>();
 
-    // Allows executions of program
+    // Allows executions of program in the command line
     public static void main(String[] args) {
         launch(args);
     }
@@ -48,15 +47,12 @@ public class QuestionThree extends Application {
 
         // Sets size for main central circle
         Circle mainCircle = new Circle(125, 125, 100);
-        mainCircle.setFill(Color.WHITE);
-        mainCircle.setStroke(Color.BLACK);
+        mainCircle.setStyle("-fx-stroke: black; -fx-fill: white");
 
         // Appends main circle and initial points to the window pane
         pane.getChildren().add(mainCircle);
         for (int i = 0; i < 3; i++) {
-            pane.getChildren().add(vertex.get(i));
-            pane.getChildren().add(degree.get(i));
-            pane.getChildren().add(line.get(i));
+            pane.getChildren().addAll(vertex.get(i), degree.get(i), line.get(i));
         }
 
         // Dynamically computes the angles between each three vertices in the triangle
@@ -138,3 +134,5 @@ public class QuestionThree extends Application {
     }
 }
 
+// MAKE SURE THE POINTS APPEAR ONLY ON THE PERIMETER OF THE CIRCLE
+// MAKE SURE THE POINTS ARE RANDOMLY ASSIGNED ON THE PERIMETER OF THE CIRCLE WHEN THE PROGRAM OPENS

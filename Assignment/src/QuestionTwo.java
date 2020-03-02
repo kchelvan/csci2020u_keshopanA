@@ -22,7 +22,7 @@ import java.text.DecimalFormat;
 
 public class QuestionTwo extends Application {
 
-    // Allows execution of program
+    // Allows execution of program in the command line
     public static void main(String[] args) { launch(args); }
 
     @Override
