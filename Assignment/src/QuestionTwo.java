@@ -7,8 +7,6 @@ March 05, 2020
 Keshopan Arunthavachelvan */
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -50,29 +48,35 @@ public class QuestionTwo extends Application {
 
         // Button used to calculate the Future Value using the provided values in the form text fields
         Button calculate = new Button("Calculate");
-        calculate.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        calculate.setOnAction(e -> {
+            // Calculates the future value only if all the required fields have a value
+            if (!annualInterestRate.getText().isEmpty() &&
+                    !investmentAmount.getText().isEmpty() &&
+                    !years.getText().isEmpty()) {
                 // Assign formatting for Decimal Value
                 DecimalFormat df = new DecimalFormat("###.##");
                 // Calculates the compounded interest using the provided values in the form text fields
-                Double compoundedInterest = Math.pow(1+(Double.parseDouble(annualInterestRate.getText())/100/12),
-                        (Double.parseDouble(years.getText())*12));
+                Double compoundedInterest = Math.pow(1 + (Double.parseDouble(annualInterestRate.getText()) / 100 / 12),
+                        (Double.parseDouble(years.getText()) * 12));
                 // The compounded interest is used to calculate the future value which is then assigned the the Future
                 // Value TextField. Future Value is rounded to two decimal places.
                 futureValue.setText((df.format(Double.parseDouble(investmentAmount.getText()) *
                         compoundedInterest)));
             }
+            // Notifies the user to fill in all required fields
+            else {
+                System.out.println("Please fill in all required fields.");
+            }
         });
 
         // Appends the TextField Form values and the button the the Grid pane
-        pane.add(new Label("Investment Amount"),0,0);
+        pane.add(new Label("Investment Amount *"),0,0);
         pane.add(investmentAmount, 1,0);
 
-        pane.add(new Label("Years"),0,1);
+        pane.add(new Label("Years *"),0,1);
         pane.add(years, 1,1);
 
-        pane.add(new Label("Annual Interest Rate"), 0,2);
+        pane.add(new Label("Annual Interest Rate *"), 0,2);
         pane.add(annualInterestRate, 1,2);
 
         pane.add(new Label("Future Value"), 0 , 3);

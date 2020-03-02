@@ -9,6 +9,7 @@ Keshopan Arunthavachelvan */
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -16,8 +17,12 @@ import javafx.scene.shape.Line;
 import javafx.geometry.Point2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class QuestionThree extends Application {
+
+    // Global Variables
+    Random randInt = new Random();
 
     // Global Variables for Shapes
     List<Circle> vertex = new ArrayList<>();
@@ -33,13 +38,24 @@ public class QuestionThree extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Instantiates the Global Variables
-        vertex.add(new Circle(125, 50, 5));
-        vertex.add(new Circle(180, 170, 5));
-        vertex.add(new Circle(50, 150, 5));
         for (int i = 0; i < 3; i++) {
             degree.add(new Text());
             line.add(new Line());
             angle.add(0.0);
+
+            // Positions new vertex on a random point on the perimeter of the main circle
+            Circle newPoint = new Circle(225, 125, 5);
+            Integer randDegree =  randInt.nextInt(360);
+            Rotate rotate = new Rotate(randDegree, 125, 125);
+
+            newPoint.getTransforms().add(rotate);
+            Double x = newPoint.localToParent(newPoint.getCenterX(), newPoint.getCenterY()).getX();
+            Double y = newPoint.localToParent(newPoint.getCenterX(), newPoint.getCenterY()).getY();
+            newPoint.setCenterX(x);
+            newPoint.setCenterY(y);
+            newPoint.getTransforms().clear();
+
+            vertex.add(newPoint);
         }
 
         // Instantiates Pane
@@ -76,6 +92,11 @@ public class QuestionThree extends Application {
         primaryStage.setTitle("Question Three: Dragging Points on a Circle");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public int calculateDirection() {
+        if (randInt.nextInt(2) == 1) { return 1; }
+        else { return -1; }
     }
 
     public void drawLine() {

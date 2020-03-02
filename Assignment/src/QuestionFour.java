@@ -27,7 +27,7 @@ public class QuestionFour extends Application {
     // Global Variable Declaration
     CategoryAxis xAxis = new CategoryAxis();
     NumberAxis yAxis = new NumberAxis();
-    BarChart <String,Number> histogram = new BarChart<>(xAxis,yAxis);
+    BarChart <String,Number> histogram = new BarChart<>(xAxis, yAxis);
 
     Button viewButton = new Button("View");
     // Example filename formats include
