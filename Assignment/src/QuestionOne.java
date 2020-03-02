@@ -29,9 +29,9 @@ public class QuestionOne extends Application {
         Random rand = new Random();
         List<Integer> cards = new ArrayList<Integer>();
 
-        // Randomly choose three numbers between 1 and 52 (inclusive)
+        // Randomly choose three numbers between 1 and 54 (inclusive)
         while (cards.size() < 3) {
-            int randomNum = rand.nextInt(52) + 1;
+            int randomNum = rand.nextInt(54) + 1;
             // If the randomly generated number does not already exist in the cards list, append the random number to
             // the cards array
             if (!cards.contains(randomNum)) {
