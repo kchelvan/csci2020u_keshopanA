@@ -10,34 +10,33 @@ import javafx.stage.Stage;
 public class main extends Application {
     private TableView<StudentRecord> students;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Lab 05");
 
         TableColumn<StudentRecord, String> idCol = new TableColumn<>("SID");
-        idCol.setPrefWidth(100);
         idCol.setCellValueFactory(new PropertyValueFactory<>("sid"));
+        idCol.setPrefWidth(100);
 
         TableColumn<StudentRecord, Float > assignmentsCol = new TableColumn<>("Assignments");
-        assignmentsCol.setPrefWidth(100);
         assignmentsCol.setCellValueFactory(new PropertyValueFactory<>("assignments"));
+        assignmentsCol.setPrefWidth(100);
 
         TableColumn<StudentRecord, Float > midtermCol = new TableColumn<>("Midterm");
-        midtermCol.setPrefWidth(100);
         midtermCol.setCellValueFactory(new PropertyValueFactory<>("midterm"));
+        midtermCol.setPrefWidth(100);
 
         TableColumn<StudentRecord, Float > finalExamCol = new TableColumn<>("Final Exam");
-        finalExamCol.setPrefWidth(100);
         finalExamCol.setCellValueFactory(new PropertyValueFactory<>("finalExam"));
+        finalExamCol.setPrefWidth(100);
 
         TableColumn<StudentRecord, Float > finalMarkCol = new TableColumn<>("Final Mark");
-        finalMarkCol.setPrefWidth(100);
         finalMarkCol.setCellValueFactory(new PropertyValueFactory<>("finalMark"));
+        finalMarkCol.setPrefWidth(100);
 
         TableColumn<StudentRecord, String > finalLetterGradeCol = new TableColumn<>("Letter Grade");
-        finalLetterGradeCol.setPrefWidth(100);
         finalLetterGradeCol.setCellValueFactory(new PropertyValueFactory<>("letterGrade"));
+        finalLetterGradeCol.setPrefWidth(100);
 
         students = new TableView<>();
         students.getColumns().add(idCol);
@@ -52,7 +51,6 @@ public class main extends Application {
 
         students.setItems(DataSource.getAllMarks());
     }
-
 
     public static void main(String[] args) {
         launch(args);

@@ -17,7 +17,6 @@ public class StudentRecord {
         this.letterGrade = "";
     }
 
-
     public String getSid() {
         return this.sid;
     }
