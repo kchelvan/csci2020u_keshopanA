@@ -79,8 +79,14 @@ public class QuestionThree extends Application {
             int temp = i;
             vertex.get(temp).setOnMouseDragged(e -> {
                 if (vertex.get(temp).contains(e.getX(), e.getY())) {
-                    vertex.get(temp).setCenterX(e.getX());
-                    vertex.get(temp).setCenterY(e.getY());
+                    // Adjusts position of vertex to move along the circumference of the circle
+                    // This is done when the mouse pointer intersects a point on the circumference of the circle
+                    double xLen = e.getX() - 125;
+                    double yLen = e.getY() - 125;
+                    double radiusLen = Math.sqrt(Math.pow(xLen, 2) + Math.pow(yLen, 2));
+
+                    vertex.get(temp).setCenterX(125 + (xLen * 100 / radiusLen));
+                    vertex.get(temp).setCenterY(125 + (yLen * 100 / radiusLen));
                     // Adjusts the degree as the vertex is moved
                     measureDegree();
                 }
@@ -102,18 +108,18 @@ public class QuestionThree extends Application {
     public void drawLine() {
         // Draws the lines between each vertex
         line.get(0).setStartX(vertex.get(0).getCenterX());
-        line.get(0).setStartY(vertex.get(0).getCenterY());
         line.get(0).setEndX(vertex.get(1).getCenterX());
+        line.get(0).setStartY(vertex.get(0).getCenterY());
         line.get(0).setEndY(vertex.get(1).getCenterY());
 
         line.get(1).setStartX(vertex.get(0).getCenterX());
-        line.get(1).setStartY(vertex.get(0).getCenterY());
         line.get(1).setEndX(vertex.get(2).getCenterX());
+        line.get(1).setStartY(vertex.get(0).getCenterY());
         line.get(1).setEndY(vertex.get(2).getCenterY());
 
         line.get(2).setStartX(vertex.get(1).getCenterX());
-        line.get(2).setStartY(vertex.get(1).getCenterY());
         line.get(2).setEndX(vertex.get(2).getCenterX());
+        line.get(2).setStartY(vertex.get(1).getCenterY());
         line.get(2).setEndY(vertex.get(2).getCenterY());
     }
 
