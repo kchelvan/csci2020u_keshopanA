@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +53,9 @@ public class QuestionFour extends Application {
         histogram.setMinWidth(720);
         histogram.setAnimated(false);
         histogram.setLegendVisible(false);
-        labelFilename.setStyle("-fx-min-width: 70px");
+        labelFilename.setStyle("-fx-min-width: 60px");
+        labelFilename.setTextAlignment(TextAlignment.CENTER);
+        filename.setMinWidth(650);
 
         // Creates an HBox with the histogram on the top-most layer, and a footer on the bottom-most layer
         box.getChildren().addAll(histogram, footer);
@@ -64,6 +67,8 @@ public class QuestionFour extends Application {
                 search();
             }
         });
+
+
 
         // Displays the histogram on the main Pane window
         Scene scene = new Scene(box);
@@ -135,7 +140,6 @@ public class QuestionFour extends Application {
                 histogramData.getData().add(new XYChart.Data(key.toString(), 0));
             }
         }
-
         // update the histogram with the updated number of occurrences for each letter
         histogram.getData().clear();
         histogram.getData().addAll(histogramData);
