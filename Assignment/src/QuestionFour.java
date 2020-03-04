@@ -32,8 +32,8 @@ public class QuestionFour extends Application {
 
     Button viewButton = new Button("View");
     // Example filename formats include
-    // "src/resources/text/Test.txt"
-    // "src/resources/text/Test2.txt"
+    // "resources/text/Test.txt"
+    // "resources/text/Test2.txt"
     Label labelFilename = new Label("Filename");
     TextField filename = new TextField();
 
