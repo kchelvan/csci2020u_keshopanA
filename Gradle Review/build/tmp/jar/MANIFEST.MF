@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Implementationi-Title: Lab03
-Main-Class: SimpleTest
-

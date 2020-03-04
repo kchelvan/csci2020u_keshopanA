@@ -68,8 +68,6 @@ public class QuestionFour extends Application {
             }
         });
 
-
-
         // Displays the histogram on the main Pane window
         Scene scene = new Scene(box);
         primaryStage.setScene(scene);
